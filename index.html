@@ -6,14 +6,13 @@
   <title>ādhāra — Coming Soon</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
 </head>
 <body>
 
 <header>
   <div class="container nav-content">
     <span class="logo">
-      <img src="images/logo.png" alt="Adhara Logo" style="height:80px;">
+      <img src="images/logo.png" alt="Adhara Logo">
     </span>
     <a href="#waitlist" class="cta-button nav-cta">Join Waitlist</a>
   </div>
@@ -41,8 +40,9 @@
   <div class="container">
     <h2>Be the first to see it.</h2>
     <p>No demos. No screenshots. Invite only.</p>
-    <form>
-      <input type="email" placeholder="Work email" required/>
+    <!-- Updated Form -->
+    <form id="waitlistForm">
+      <input type="email" name="email" placeholder="Work email" required/>
       <button type="submit" class="cta-button primary-cta">Join Private Rollout</button>
     </form>
     <p class="small-text">Used by a handful of engineering orgs in stealth.</p>
@@ -54,6 +54,29 @@
     <p>&copy; 2025 ādhāra. All rights reserved.</p>
   </div>
 </footer>
+
+<!-- JavaScript for Vercel Email -->
+<script>
+document.getElementById("waitlistForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = e.target.email.value;
+
+  try {
+    const res = await fetch("/api/sendEmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+    alert(data.message || "Thanks! Your email is saved.");
+    e.target.reset();
+  } catch (err) {
+    alert("Something went wrong. Try again later.");
+    console.error(err);
+  }
+});
+</script>
 
 </body>
 </html>
