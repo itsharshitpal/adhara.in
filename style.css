@@ -1,249 +1,165 @@
 /* --- Minimal Dark Theme Variables --- */
 :root {
-    --bg-color: #0a0a0a; /* Deep Black */
-    --text-color: #f0f0f0; /* Off-White for body text */
-    --heading-color: #ffffff; /* Pure White for headlines */
-    --primary-color: #00cc66; /* Vibrant Green for CTA (highly visible) */
-    --secondary-bg: #1a1a1a; /* Dark Grey for subtle section separation */
-    --border-color: #333333; /* Dark border lines */
+    --bg-color: #0a0a0a;
+    --text-color: #f0f0f0;
+    --heading-color: #ffffff;
+    --primary-color: #00cc66;
+    --secondary-bg: #1a1a1a;
+    --border-color: #333333;
     --font-family: 'Arial', sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing:border-box; margin:0; padding:0; }
 
 body {
     font-family: var(--font-family);
     line-height: 1.6;
-    background-color: var(--bg-color); /* Black Background */
-    color: var(--text-color); /* Light Text */
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 .container {
-    max-width: 1000px; /* Slightly narrower for a more focused, minimal look */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- Navigation & Header --- */
+/* ----- HEADER ----- */
 header {
     background: var(--bg-color);
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color); /* Subtle divider */
+    padding:20px 0;
 }
 
 .nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.logo {
-    font-size: 1.2rem;
-    font-weight: normal; /* Less bold for minimal look */
-    color: var(--heading-color);
-    letter-spacing: 1px;
-}
+.logo img { display:block; }
 
-/* --- Buttons/CTA --- */
+/* ----- CTA BUTTONS ----- */
 .cta-button {
-    display: inline-block;
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 3px; /* Square edges for minimal style */
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display:inline-block;
+    padding:10px 25px;
+    border-radius:2px;
+    font-weight:500;
+    text-decoration:none;
+    transition:0.3s;
+    letter-spacing:0.2px;
 }
 
 .primary-cta {
-    background-color: var(--primary-color);
-    color: var(--bg-color); /* Black text on bright button */
-    font-size: 1rem;
-    margin-top: 20px;
-    border: none;
+    background:var(--primary-color);
+    color:var(--bg-color);
+    border:none;
 }
 
-.primary-cta:hover {
-    background-color: #00e673; /* Lighter green on hover */
-}
+.primary-cta:hover { background:#00e673; }
 
 .nav-cta {
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 8px 18px;
-    font-size: 0.9rem;
+    background:transparent;
+    border:1px solid var(--primary-color);
+    color:var(--primary-color);
 }
 
 .nav-cta:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
+    background:var(--primary-color);
+    color:var(--bg-color);
 }
 
-/* --- Hero Section --- */
+/* ----- HERO ----- */
 .hero {
-    padding: 120px 0;
-    text-align: center;
+    padding:180px 0 140px;
+    text-align:center;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 25px;
-    color: var(--heading-color);
-    line-height: 1.2;
+    font-size:3rem;
+    font-weight:300;
+    color:var(--heading-color);
+    line-height:1.2;
+    margin-bottom:25px;
 }
 
 .hero .subtitle {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    max-width: 650px;
-    margin: 0 auto 35px;
+    font-size:1.1rem;
+    opacity:.75;
+    max-width:650px;
+    margin:0 auto 35px;
 }
 
 .small-text {
-    margin-top: 15px;
-    font-size: 0.8rem;
-    color: #666; /* Dimmer text */
+    margin-top:15px;
+    font-size:0.8rem;
+    opacity:.4;
 }
 
-/* --- Feature/Problem Section --- */
-.features {
-    padding: 80px 0;
-    text-align: center;
+/* ----- TEASE SECTION ----- */
+.tease {
+    background:var(--secondary-bg);
+    padding:120px 0;
+    text-align:center;
 }
 
-.light-bg {
-    background: var(--secondary-bg); /* Use dark grey for subtle contrast */
+.tease-line {
+    font-size:1.2rem;
+    opacity:.7;
+    margin-bottom:18px;
 }
 
-.features h2 {
-    color: var(--heading-color);
-    margin-bottom: 50px;
+.tease-line.strong { opacity:1; font-weight:400; }
+
+/* ----- WAITLIST SECTION ----- */
+.waitlist {
+    background:var(--bg-color);
+    padding:120px 0;
+    text-align:center;
 }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+.waitlist h2 {
+    font-weight:300;
+    color:var(--heading-color);
+    margin-bottom:15px;
 }
 
-.feature-item {
-    background: var(--bg-color);
-    padding: 30px;
-    border-radius: 0; /* Minimal, no rounded corners */
-    border: 1px solid var(--border-color);
-    box-shadow: none;
-    text-align: left;
+.waitlist p {
+    opacity:.7;
+    margin-bottom:25px;
 }
 
-.feature-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
+.waitlist form {
+    display:flex;
+    gap:15px;
+    justify-content:center;
 }
 
-/* --- Solution Section --- */
-.solution {
-    padding: 80px 0;
-    border-top: 1px solid var(--border-color);
+.waitlist input {
+    background:transparent;
+    color:var(--text-color);
+    border:1px solid var(--border-color);
+    padding:12px 18px;
+    width:260px;
 }
 
-.solution h2 {
-    text-align: center;
-    color: var(--heading-color);
-    margin-bottom: 60px;
+.waitlist input:focus {
+    outline:none;
+    border-color:var(--primary-color);
 }
 
-.solution-content {
-    display: flex;
-    gap: 80px;
-    align-items: center;
-}
-
-.solution-text {
-    flex: 1.2;
-}
-
-.solution-text h3 {
-    font-size: 1.6rem;
-    color: var(--heading-color);
-    margin-bottom: 20px;
-}
-
-.solution-text ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.solution-text li {
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--border-color); /* Dashed line for minimal style */
-}
-
-.solution-text li:last-child {
-    border-bottom: none;
-}
-
-.check {
-    color: var(--primary-color);
-    font-weight: normal;
-    margin-right: 5px;
-}
-
-.solution-image {
-    flex: 1;
-}
-
-.visual-placeholder {
-    background: var(--secondary-bg); /* Dark grey box */
-    height: 250px;
-    border-radius: 3px;
-    border: 1px solid var(--primary-color); /* Highlight with primary color border */
-}
-
-/* --- Final CTA --- */
-.final-cta {
-    padding: 100px 0;
-    text-align: center;
-    background: var(--secondary-bg); /* Use dark grey for contrast */
-}
-
-.final-cta h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--heading-color);
-}
-
-/* --- Footer --- */
+/* ----- FOOTER ----- */
 footer {
-    background: var(--bg-color);
-    color: #444; /* Very dim grey */
-    padding: 30px 0;
-    text-align: center;
-    font-size: 0.8rem;
-    border-top: 1px solid var(--border-color);
+    padding:30px 0;
+    text-align:center;
+    font-size:0.8rem;
+    opacity:.35;
 }
 
-/* --- Responsiveness --- */
-@media (max-width: 900px) {
-    .solution-content {
-        flex-direction: column;
-        text-align: left;
-        gap: 40px;
-    }
-    .solution-image {
-        order: -1;
-        width: 100%;
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero {
-        padding: 80px 0;
-    }
+/* ----- MOBILE ----- */
+@media(max-width:900px){
+    .hero{ padding:120px 0; }
+    .tease,.waitlist{ padding:80px 0; }
+    .hero h1{ font-size:2rem; }
+    .waitlist form{ flex-direction:column; width:100%; }
+    .waitlist input{ width:100%; }
 }
